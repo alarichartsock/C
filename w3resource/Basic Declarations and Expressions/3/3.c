@@ -8,5 +8,13 @@ int main() {
     printf("F\n");
     printf("F\n");
     printf("F\n");
-    printf("F\n");
+    printf("F\n\n");
+    printf("    #######  \n");
+    printf("  ##       ##\n");
+    printf("  #\n");
+    printf("  #\n");
+    printf("  #\n");
+    printf("  #\n");
+    printf("  ##       ##\n");
+    printf("    #######  \n");
 }
