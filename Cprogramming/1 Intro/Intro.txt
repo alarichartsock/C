@@ -1,0 +1,69 @@
+	Basics
+
+#include <stdio.h>
+int main()
+{
+    printf( "I am alive!  Beware.\n" );
+    getchar();
+    return 0;
+}
+
+stdio stands for standard i/o or standard input output. We need to include it in every program if we want to use functions like print, scanf, and getchar.
+
+Every C program begins inside a function called "main".
+
+The print function in C is printf, and \n stands for newline and creates a new line.
+
+getchar is a function call that gets input from the user. 
+
+Finally, we return a number. By returning 0, we signal to the computer whether or not the program succeeded or not. A return value of 0 means success.
+
+Comments can be made like so:
+
+/* This is a comment */
+
+	Variables
+
+https://www.youtube.com/watch?v=j1u3V6pzwEI
+https://www.youtube.com/watch?v=rFnWoTnoC50
+https://www.youtube.com/watch?v=WnCjYZ5ANgg
+
+Data types include char, int, and float.
+
+Examples of variable declaration:
+
+int x;
+int a, b, c, d;
+char letter;
+float the_float;
+
+In C you have to declare your variables before you even do anything else inside of the local scope.
+
+Reading Input
+
+#include <stdio.h>
+ 
+int main()
+{
+    int this_is_a_number;
+ 
+    printf( "Please enter a number: " );
+    scanf( "%d", &this_is_a_number );
+    printf( "You entered %d", this_is_a_number );
+    getchar();
+    return 0;
+}
+
+Scanf works by taking a string and some variables modified with the &. The string tells scanf what variables to look for. The %d signifies that the scanf is going to be reading in an integer, and then we sort of tell scanf what to do with the integer by signifying the variable this_is_a_number. The & tells the compiler where to put the input.
+
+Examples of math in c
+a = 4 * 6;
+a = a + 5;
+a == 5
+
+a < 5
+a > 5
+a == 5
+
+
+

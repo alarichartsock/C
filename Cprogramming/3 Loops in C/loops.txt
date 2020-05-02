@@ -1,0 +1,24 @@
+Loops can be used to repeat a block of code a number of times.
+
+A for loop will repeat a code block for a set number of times, and a while loop will run while a condition is true.
+
+A do while loop will do an instruction one time, and it functions like a while loop. It basically says "execute this code, and while this condition is true keep looping back"
+
+syntax:
+
+do {
+    /* "Hello, world!" is printed at least one time
+      even though the condition is false */
+      printf( "Hello, world!\n" );
+  } while ( x != 0 );
+  getchar();
+
+Break and Continue
+
+Two keywords that are very important to looping are break and continue.
+The break command will exit the most immediately surrounding loop regardless of what the conditions of the loop are.
+Break is useful if we want to exit a loop under special circumstances.
+
+Continue is another keyword that controls the flow of loops. If you are executing a loop and hit a continue statement, the loop will stop its current iteration, update itself (in the case of for loops) and begin to execute again from the top.
+Essentially, the continue statement is saying "this iteration of the loop is done, let's continue with the loop without executing whatever code comes after me.
+

@@ -1,0 +1,29 @@
+Example of comparisons
+
+>     greater than              5 > 4 is TRUE
+<     less than                 4 < 5 is TRUE
+>=    greater than or equal     4 >= 4 is TRUE
+<=    less than or equal        3 <= 4 is TRUE
+==    equal to                  5 == 5 is TRUE
+!=    not equal to              5 != 4 is TRUE
+
+In C, a comparison will return 1 if the comparison is true and 0 if the comparison is false.
+
+if (condition) {
+    //do something
+} else {
+    //do something else
+}
+
+if (condition) {
+    //do something
+} else if (condition) {
+    //do something else
+} else {
+    //do the last thing
+}
+
+Some boolean operators:
+    &&  Logical AND operator
+    ||  Logical OR operator
+    !   Logical NOT operator

@@ -1,0 +1,1 @@
+- An encrypted, minimalist encrypted journal written in C
