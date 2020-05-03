@@ -1,5 +1,7 @@
 	Basics
 
+https://codeforwin.org/2015/05/list-of-all-format-specifiers-in-c-programming.html
+
 #include <stdio.h>
 int main()
 {
@@ -14,7 +16,7 @@ Every C program begins inside a function called "main".
 
 The print function in C is printf, and \n stands for newline and creates a new line.
 
-getchar is a function call that gets input from the user. 
+getchar is a function call that gets input from the user.
 
 Finally, we return a number. By returning 0, we signal to the computer whether or not the program succeeded or not. A return value of 0 means success.
 
@@ -42,11 +44,11 @@ In C you have to declare your variables before you even do anything else inside 
 Reading Input
 
 #include <stdio.h>
- 
+
 int main()
 {
     int this_is_a_number;
- 
+
     printf( "Please enter a number: " );
     scanf( "%d", &this_is_a_number );
     printf( "You entered %d", this_is_a_number );
