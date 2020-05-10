@@ -1,0 +1,45 @@
+Pointers point to a location within memory. The word pointer can refer either to a memory address itself, or to a variable that stores a memory address.
+
+Pointer syntax:
+
+type *name;
+
+example:
+
+int *points_to_integer;
+
+/* one pointer, one regular int */
+int *pointer1, nonpointer1;
+ 
+/* two pointers */
+int *pointer1, *pointer2;
+
+In order to have a pointer actually point to another variable it is necessary to have the memory address of that variable also. To get the memory address of a variable (its location in memory), put the & sign in front of the variable name. This makes it give its address. This is called the address-of operator, because it returns the memory address. Conveniently, both ampersand and address-of start with a; that's a useful way to remember that you use & to get the address of a variable. 
+
+
+#include <stdio.h>
+ 
+int main()
+{ 
+    int x;            /* A normal integer*/
+    int *p;           /* A pointer to an integer ("*p" is an integer, so p
+                       must be a pointer to an integer) */
+ 
+    p = &x;           /* Read it, "assign the address of x to p" */
+    scanf( "%d", &x );          /* Put a value in x, we could also use p here */
+    printf( "%d\n", *p ); /* Note the use of the * to get the value */
+    getchar();
+}
+
+To avoid screwing with memory in other areas of your computer, always intitialize your pointers before you use them.
+
+We can allocate memory using malloc. We pass in a single parameter, either the data type or the pointer that we're using. We need to be diligent when we allocate to free the memory that we previously allocated. This can be done by calling free(ptr);
+
+float *ptr; 
+/* hundreds of lines of code */
+ptr = malloc( sizeof(*ptr) ); 
+
+After freeing a pointer, it is a good idea to reset it to point to 0. When 0 is assigned to a pointer, the pointer becomes a null pointer, in other words, it points to nothing. By doing this, when you do something foolish with the pointer (it happens a lot, even with experienced programmers), you find out immediately instead of later, when you have done considerable damage. 
+
+https://www.cprogramming.com/tutorial/c/lesson6.html
+
