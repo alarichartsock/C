@@ -6,8 +6,6 @@ int main () {
     char cht = 'z';
 
     printf("\n\n Pointer : Demonstrate the use of & and * operator :\n");
-    printf("--------------------------------------------------------\n");
-
 
     int *pt1;
     float *pt2;

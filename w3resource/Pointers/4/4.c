@@ -2,14 +2,12 @@
 
 int main() {
     /*
-    Not my code
     This program adds two numbers using pointers.
     */
 
    int fno, sno, *ptr, *qtr, sum;
 
-   printf("\n\n Pointer : Add two numbers :\n");
-   printf("--------------------------------\n");
+   printf("\nPointer : Add two numbers :\n");
 
    printf(" Input the first number : ");
    scanf("%d", &fno);

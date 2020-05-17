@@ -2,9 +2,6 @@
 #include <string.h>
 
 void changePosition(char *ch1, char *ch2)
-/*
-not my code. as of 5132020 I still don't understand this code.
-*/
 {
     char tmp;
     tmp = *ch1;
