@@ -6,7 +6,7 @@ void main()
 {
    char str1[25];
    int l;
-	printf("\n\n Pointer : Calculate the length of the string :\n");
+	printf("\n Pointer : Calculate the length of the string :\n");
 
    printf(" Input a string : ");
    fgets(str1, sizeof str1, stdin);

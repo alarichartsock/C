@@ -1,30 +1,32 @@
 #include <stdio.h>
+void main()
+{
+   int *a,i,j,tmp,n;
+ 	printf("\n Pointer : Sort an array using pointer :\n");
 
-int main() {
+   printf(" Input the number of elements to store in the array : ");
+   scanf("%d",&n);
 
-    int size;
-
-    printf("Input the number of elements to store in the array: ");
-    scanf("%i",&size);
-
-    int store[size];
-
-    for(int i=0;i<size;i++) {
-        int data;
-        printf("Element %i as an integer ",i+1);
-        scanf("%i",&data);
-        store[i] = data;
+   printf(" Input %d number of elements in the array : \n",n);
+   for(i=0;i<n;i++)
+      {
+	  printf(" element - %d : ",i+1);
+	  scanf("%d",a+i);
+	  }
+   for(i=0;i<n;i++) {
+    for(j=i+1;j<n;j++) {
+       if( *(a+i) > *(a+j)) {
+      tmp = *(a+i);
+      *(a+i) = *(a+j);
+      *(a+j) = tmp;
+       }
     }
-
-    sort(&store);
-
-    for(int i=0;i<size;i++) {
-        printf("Element %i: %i",i,store[i]);
-    }
-
-    return 0;
+   }
+   printf("\n The elements in the array after sorting : \n");
+   for(i=0;i<n;i++)
+      {
+	  printf(" element - %d : %d \n",i+1,*(a+i));
+	  }
+printf("\n");
 }
 
-void sort(*array) {
-
-}
