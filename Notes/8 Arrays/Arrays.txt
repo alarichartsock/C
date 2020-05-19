@@ -1,0 +1,31 @@
+An array is a sequential store of information. Arrays have a type and a size.
+
+Syntax for a one dimensional array:
+type arrayName[size];
+
+Syntax for a two dimensional array:
+type arrayName[isize][jsize]
+
+We can also explicitly declare an entire array:
+int a[] = {1,2,3,4,5,6}
+
+Pointers and Arrays:
+We can assign a pointer to any part of an array. For example:
+
+int a[5];
+int *p;
+p = &a[0];
+//p is the address of a[0]
+//*p is the value of a[0]
+
+If we don't choose the index of the array we're assigning to the pointer then it will automatically index the first element. For example:
+
+p = &a;
+//p is the address of a[0]
+//*p is the value of [a]
+
+We can also increment within an array
+
+p++
+//p is the address of a[1]
+//*p is the value is a[1]

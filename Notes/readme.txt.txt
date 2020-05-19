@@ -1,0 +1,1 @@
+These are my notes on the C programming language from absorbing the tutorial at https://www.cprogramming.com/tutorial/c-tutorial.html?inl=nv and some online videos, most notably from mycodeschool.

@@ -4,7 +4,6 @@ int main() {
 
     int *arr,size,sum=0;
 
-
     printf("Enter the size of your array: ");
     scanf("%i",&size);
     arr = (int*)calloc(size,sizeof(int));

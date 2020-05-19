@@ -1,7 +1,0 @@
-instantiating a one dimensional array:
-
-type arrayName [ arraySize ];
-
-instantiating a two dimensional array:
-
-type arrayName [arraySize ];

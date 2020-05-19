@@ -1,0 +1,7 @@
+To compile:
+
+gcc source.c -o filename
+
+To compile with debug flags:
+
+gcc filename -o filename -g

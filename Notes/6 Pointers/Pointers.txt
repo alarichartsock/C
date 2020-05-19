@@ -21,6 +21,26 @@ In order to have a pointer actually point to another variable it is necessary to
 
 int main()
 {
+Pointers point to a location within memory. The word pointer can refer either to a memory address itself, or to a variable that stores a memory address.
+
+Syntax:
+type *name;
+
+Ex:
+int *points_to_integer;
+
+/* one pointer, one regular int */
+int *pointer1, nonpointer1;
+
+/* two pointers */
+int *pointer1, *pointer2;
+
+To get the memory address of a variable (its location in memory), put the & sign in front of the variable name. This makes it give its address. This is called the address-of operator, because it returns the memory address. Conveniently, both ampersand and address-of start with a; that's a useful way to remember that you use & to get the address of a variable.
+
+#include <stdio.h>
+
+int main()
+{
     int x;            /* A normal integer*/
     int *p;           /* A pointer to an integer ("*p" is an integer, so p
                        must be a pointer to an integer) */
@@ -35,13 +55,13 @@ To avoid screwing with memory in other areas of your computer, always intitializ
 
 We can allocate memory using malloc and calloc. Malloc stands for memory allocation, and Calloc stands for continuous allocation.
 
-We pass in a single parameter, either the data type or the pointer that we're using. We need to be diligent when we allocate to free the memory that we previously allocated. This can be done by calling free(ptr);
+
 
 float *ptr;
 /* hundreds of lines of code */
 ptr = malloc( sizeof(*ptr) );
 
-alternatively, ptr = (float*) malloc(100 * sizeof(float));  (questions? see this for reference: https://stackoverflow.com/questions/15222774/mallocsizeofint-vs-mallocsizeofint-vs-int-mallocsizeofint)
+alternatively, ptr = (float*) malloc(100 * sizeof(float));  (reference: https://stackoverflow.com/questions/15222774/mallocsizeofint-vs-mallocsizeofint-vs-int-mallocsizeofint)
 
 Calloc takes how many elements you're allocating for and their size as parameters.
 
@@ -49,7 +69,8 @@ float *ptr;
 /*code*/
 ptr = (float*) calloc(25, sizeof(float));
 
-After freeing a pointer, it is a good idea to reset it to point to 0. When 0 is assigned to a pointer, the pointer becomes a null pointer, in other words, it points to nothing. By doing this, when you do something foolish with the pointer (it happens a lot, even with experienced programmers), you find out immediately instead of later, when you have done considerable damage.
+We need to be diligent to free the memory that we previously allocated. This can be done by calling free(ptr); 
+After freeing a pointer, it is a good idea to reset it to point to 0. When 0 is assigned to a pointer, the pointer becomes a null pointer, in other words, it points to nothing. By doing this, when you do something foolish with the pointer, you find out immediately instead of later.
 
 Referencing means taking the address of an existing variable (using &) to set a pointer variable. In order to be valid, a pointer has to be set to the address of a variable of the same type as the pointer, without the asterisk:
 
@@ -64,31 +85,11 @@ Dereferencing a pointer means using the * operator (asterisk character) to retri
 int n1;
 n1 = *p1;
 
-The call by reference method of passing arguments to a function copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. It means the changes made to the parameter affect the passed argument.
-A call by reference will change the value of variables outside the scope of a method.
+The call by reference method of passing arguments to a function copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. It means the changes made to the parameter affect the passed argument. Conversely, a call by value will only change the value of the variable inside of the scope of the function.
 
-C will store an integer in 4 bytes, a char in 1 byte, and a float in 4 bytes. You can jump ahead in memory if you use a pointer +1
-
-int *p;
-p = &a;
-
-printf("Address= %d,value = %d\n",p,*p); //4456036, 1025
-printf("Address= %d,value = %d\n",p+1,*(p+1)); //4456040, -8589993460
-
-Since an integer stores 4 bytes, when we add one to our pointer it will jump 4 bytes in memory. Since we haven't actually stored anything in p+1 or 4456040, we print off some latent garbage formatted as an integer.
-
-If we want to make a pointer to a pointer then we can declare that. We can keep on layering pointers if we really wanted to.
-
-int x = 5;
-int *p;
-p = &x;
-*p = 6;
-int **q;
-q = &p;
-int ***r = &q; //you can see how this could get crazy
-
-A computers allocated RAM can be seen, between i, and j. On the bottom we have code, then static/global variables, then function calls and local variables, and then the heap. If a program overrides the stack then it'll return a stack overflow.
+If we want to make a pointer to a pointer then we can declare that by adding more asterisks. We can keep on layering pointers if we really wanted to.
 
 https://www.youtube.com/watch?v=LW8Rfh6TzGg&list=PL2_aWCzGMAwLZp6LMUKI3cc7pgGsasm2_&index=5
 https://miro.medium.com/max/1020/1*HPJDKQskyVGcx7YlvwMVRA.jpeg
 https://www.cprogramming.com/tutorial/c/lesson6.html
+

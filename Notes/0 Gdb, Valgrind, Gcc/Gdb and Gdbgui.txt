@@ -4,3 +4,5 @@ To add breakpoints:
 	b line#
 To clear breakpoints:
 	clear line#
+To print variables:
+	p variable

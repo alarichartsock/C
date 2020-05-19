@@ -1,0 +1,24 @@
+Valgrind isn't compatible with windows, so I'm going to be running it on an Ubuntu subsystem. 
+
+ahhhh
+2112
+
+Ubuntu Commands:
+
+df -h : 
+cd : change directory
+ls : lists files
+ls -a : lists hidden files
+clear : clears the terminal log
+reset : restarts the terminal
+
+Valgrind commands
+
+valgrind ./program : runs memcheck
+
+Good flags to use:
+
+-v : Verbose
+--leak-check=full : see details of leaked memory
+
+We know that we don't have memory leaks when valgrind states "All heap blocks were freed -- no leaks are possible"
