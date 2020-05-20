@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
 
@@ -18,6 +19,8 @@ int main() {
     }
 
     printf("The total size is %i",sum);
+
+    free(arr);
 
     return 0;
 }

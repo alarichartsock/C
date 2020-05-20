@@ -11,6 +11,8 @@ ls : lists files
 ls -a : lists hidden files
 clear : clears the terminal log
 reset : restarts the terminal
+rm : Removes a file
+
 
 Valgrind commands
 
