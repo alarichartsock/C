@@ -1,0 +1,55 @@
+Structures help when we want to store a group of related values. Structures provide a way of storing many different values in variables of potentially different types under the same name.
+
+Defining a structure:
+struct Tag {
+Members
+};
+
+To actually create a single structure:
+struct Tag nme_of_single_structure;
+
+To access a variable of the structure:
+name_of_single_structure.name_of_variable;
+
+Example:
+struct example {
+  int x;
+};
+struct example an_example; /* Treating it like a normal variable type
+                            except with the addition of struct*/
+an_example.x = 33;          /*How to access its members */
+
+Example program:
+
+struct database {
+  int id_number;
+  int age;
+  float salary;
+};
+ 
+int main()
+{
+  struct database employee;  /* There is now an employee variable that has
+                              modifiable variables inside it.*/
+  employee.age = 22;
+  employee.id_number = 1;
+  employee.salary = 12000.21;
+}
+
+The member operator . get the value of a struct variable.
+
+To access members of a structure using pointers, we use the -> operator. 
+
+Example:
+
+struct person {
+	int age;
+	float weight;
+};
+
+//code
+struct person *personPtr,person1;
+personPtr = &person1;
+
+scanf("%d",&personPtr->age);
+

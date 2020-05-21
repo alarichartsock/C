@@ -5,7 +5,7 @@ int main() {
     /*
     This program will reverse an array.
     */
-    int *arr,size,sum=0;
+    int size,sum=0;
 
     printf("Enter the size of your array: ");
     scanf("%i",&size);

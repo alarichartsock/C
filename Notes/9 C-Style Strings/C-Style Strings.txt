@@ -1,0 +1,75 @@
+A string is collection of characters. But C handles strings differently. 
+
+'a' : not a string. This is a single character. Characters don't behave like pointers when passed into functions. 
+'aa' : This is a string. It's an array of characters.
+
+C style strings are always terminated by a null character, '\0'. When we declare our strings we need to account for the extra character by including an extra space in the array. We'd initialize a 49 character string like so:
+char string[50];
+
+Here's a cool way to declare a string using pointers. Just remember to free it, and if you don't remember to free it then use valgrind:
+
+arry = malloc(sieof(*arry)*256);
+
+It gets tricky when we ask the user for a string. If we use scanf() then it will terminate after the first character. Additionally, scanf doesn't know how big the array is which can lead to a buffer overflow. The best solution is to use fgets, which is included in stdio.h
+
+Syntax:
+char *fgets (char *str, int size, FILE* file);
+
+The first parameter is what fgets will write to, the second is the size parameter, and the third is the input parameter. Fgets has the ability to input from any file. However, we pass in stdin so that fgets reads from the keyboard.
+
+Fgets will read a string of size-1 and then stop, add the null terminator after the last character. It will read input until it either has no more room to store the data or until the user hits enter. Fgets may fill up the entire space allocated to str, but it will never return a non-null terminated string. 
+
+example:
+
+#include <stdio.h>
+ 
+int main()
+{
+    /* A nice long string */
+    char string[256];                               
+ 
+    printf( "Please enter a long string: " );
+ 
+    /* notice stdin being passed in */
+    fgets ( string, 256, stdin );           
+ 
+    printf( "You entered a very long string, %s", string );
+ 
+    getchar();
+}
+
+The one thing to watch out for when using fgets is that it will include the newline character ('\n') when it reads input unless there isn't room in the string to store it. This means that you may need to manually remove the input. Here's how:
+
+char input[256];
+int i;
+
+for(int i=0;i<256;i++) {
+	if(input[i] == '\n') {
+		input[i] = '\0';
+		break;
+	}
+}
+
+string.h is a good header file for working with strings.
+
+strcmp() will take two strings and compare to see which is a longer string. The result will be negative is s1 is less than s2, zero if s1 and s2 are equal, and positive if s1 is greater than s2. Strcase is a case sensitive comparison, strings are counted as being different if they have a different case.
+strcmp(const char *s1, const char *s2);
+
+strcat() will concatenate two strings. Beware: it assumes that dest is large enough to hold the entire contents of src as well as its own contents.
+char *strcat ( char *dest, const char *src );
+
+strcpy() will copy its entire contents of src into dest. The contents of dest after strcpy will be exactly the same as src such that strcmp (dest,src) will return 0;
+char *strcpy ( char *dest, const char *src );
+
+strlen() will find the length of a string, minus the terminating characte. The size_t is just an integer that cannot be negative. 
+size_t strlen ( const char *s );
+
+there's a big test program for these functions included in this directory.
+
+The above string functions all rely on the existence of a null terminator at the end of a string. This isn't always a safe bet. Moreover, some of them, noticeably strcat, rely on the fact that the destination string can hold the entire string being appended onto the end. Although it might seem like you'll never make that sort of mistake, historically, problems based on accidentally writing off the end of an array in a function like strcat, have been a major problem.
+
+Fortunately, in their infinite wisdom, the designers of C have included functions designed to help you avoid these issues. Similar to the way that fgets takes the maximum number of characters that fit into the buffer, there are string functions that take an additional argument to indicate the length of the destination buffer. For instance, the strcpy function has an analogous strncpy function
+	
+char *strncpy ( char *dest, const char *src, size_t len );
+
+which will only copy len bytes from src to dest (len should be less than the size of dest or the write could still go beyond the bounds of the array). Unfortunately, strncpy can lead to one niggling issue: it doesn't guarantee that dest will have a null terminator attached to it (this might happen if the string src is longer than dest). You can avoid this problem by using strlen to get the length of src and make sure it will fit in dest. Of course, if you were going to do that, then you probably don't need strncpy in the first place, right? Wrong. Now it forces you to pay attention to this issue, which is a big part of the battle.
