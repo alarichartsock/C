@@ -1,20 +1,27 @@
-Valgrind isn't compatible with windows, so I'm going to be running it on an Ubuntu subsystem. 
+From now on, I'll be doing my development on my Fedora boot. 
 
 ahhhh
 2112
 
-Ubuntu Commands:
+Linux commands
 
-df -h : 
+df -h : shows disk space
 cd : change directory
+	~ moves into home directory
+	use ~ before typing the directory name to zoom into it
 ls : lists files
-ls -a : lists hidden files
+	-a : lists hidden files
+	-l : lists long version of files
+	.. : lists files in parent folder
 clear : clears the terminal log
 reset : restarts the terminal
 rm : Removes a file
+pwd : Prints the current working directory
+tree : Prints out a tree directory of wherever you are
+exit : exits root user
+mv filename.c .. : moves a file
 
-
-Valgrind commands
+Running Valgrind
 
 valgrind ./program : runs memcheck
 
