@@ -1,0 +1,15 @@
+From now on, I'll be doing my development on my Fedora boot. 
+
+ahhhh
+2112
+
+Running Valgrind
+
+valgrind ./program : runs memcheck
+
+Good flags to use:
+
+-v : Verbose
+--leak-check=full : see details of leaked memory
+
+We know that we don't have memory leaks when valgrind states "All heap blocks were freed -- no leaks are possible"

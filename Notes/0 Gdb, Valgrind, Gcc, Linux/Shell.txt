@@ -1,0 +1,45 @@
+Basic terminal
+    missing:~$ : This shows you that you are on the machine missing, that you are not the rot directory because of the $
+
+    If the shell is asked to execute a command that doesn’t match one of its programming keywords, it consults an environment variable called $PATH that lists which directories the shell should search for programs when it is given a command
+
+    When we run the echo command, the shell sees that it should execute the program echo, and then searches through the :-separated list of directories in $PATH for a file by that name. When it finds it, it runs it (assuming the file is executable; more on that later). We can find out which file is executed for a given program name using the which program. We can also bypass $PATH entirely by giving the path to the file we want to execute.
+
+Connecting programs
+    In the shell, programs have two primary “streams” associated with them: their input stream and their output stream. When the program tries to read input, it reads from the input stream, and when it prints something, it prints to its output stream. Normally, a program’s input and output are both your terminal. That is, your keyboard as input and your screen as output.
+
+    You can also use >> to append to a file. Where this kind of input/output redirection really shines is in the use of pipes. The | operator lets you “chain” programs such that the output of one is the input of another:
+
+Root access allows you to do just about everything. 
+
+Linux commands
+    man : Takes an argument of the name of a program nd shows you a simplified doc
+
+Directory work
+    df -h : shows disk space
+    cd : change directory
+	    ~ moves into home directory
+	    use ~ before typing the directory name to zoom into it
+    ls : lists files
+	    -a : lists hidden files
+	    -l : lists long version of files
+	    .. : lists files in parent folder
+    clear : clears the terminal log
+    reset : restarts the terminal
+    rm : Removes a file
+    pwd : Prints the current working directory
+    tree : Prints out a tree directory of wherever you are
+    exit : exits root user
+    mv filename.c .. : moves a file
+    cp : Copies a file
+    mkdir : Makes a directory
+
+Clamav anti virus
+    sudo freshclam : Updates virus definitions
+    clamscan -r / : Scans all files on computer, displaying each file
+
+RPM (package manager)
+    rpm -i : Installs a package
+    rpm -q : Checks whether or not something is installed
+    rpm -qa : Shows all packages
+

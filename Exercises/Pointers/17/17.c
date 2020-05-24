@@ -1,11 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void printarray(int arr[], int size) {
+    for(int i=0;i<size;i++) {
+        printf("\nElement %i: %i",i,arr[i]);
+    }
+}
+
+
 int main() {
     /*
     This program will reverse an array.
     */
-    int size,sum=0;
+    int size;
 
     printf("Enter the size of your array: ");
     scanf("%i",&size);
@@ -32,10 +39,4 @@ int main() {
     printarray(array,size);
 
     return 0;
-}
-
-void printarray(int arr[], int size) {
-    for(int i=0;i<size;i++) {
-        printf("\nElement %i: %i",i,arr[i]);
-    }
 }
