@@ -1,0 +1,56 @@
+Unions are a lot like structs, with some minor storage savings. A union will only need as much storage as its largest component, while a struct will be the side of all of its components.
+
+Syntax:
+
+union car
+{
+  char name[50];
+  int price;
+};
+
+When a union is defined, it creates a user-defined type. However, no memory is allocated. To allocate memory for a given union type and work with it, we need to create variables.
+
+Here's how we create union variables.
+
+union car
+{
+  char name[50];
+  int price;
+};
+
+int main()
+{
+  union car car1, car2, *car3;
+  return 0;
+}
+
+Access members of a union
+
+We use the . operator to access members of a union. To access pointer variables, we use also use the -> operator.
+
+In the above example,
+
+    To access price for car1, car1.price is used.
+    To access price using car3, either (*car3).price or car3->price can be used.
+
+You can access all members of a structure at once as sufficient memory is allocated for all members. However, it's not the case in unions. You can only access a single member of a union at one time. Let's see an example.
+
+#include <stdio.h>
+union Job
+{
+   float salary;
+   int workerNo;
+} j;
+
+int main()
+{
+   j.salary = 12.3;
+   j.workerNo = 100;
+
+   printf("Salary = %.1f\n", j.salary);
+   printf("Number of workers = %d", j.workerNo);
+   return 0;
+}
+
+Salary = 0.0
+Number of workers = 100

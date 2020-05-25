@@ -14,6 +14,7 @@ Root access allows you to do just about everything.
 
 Linux commands
     man : Takes an argument of the name of a program nd shows you a simplified doc
+    sudo dnf update : Updates all packages and dependencies
 
 Directory work
     df -h : shows disk space
@@ -43,3 +44,9 @@ RPM (package manager)
     rpm -q : Checks whether or not something is installed
     rpm -qa : Shows all packages
 
+Vim (text editor)
+    vim : Opens vim
+    vim filename.type : Opens file in vim
+    (while opened)
+        :q<enter> : quits
+        :help<enter>  : displays help
