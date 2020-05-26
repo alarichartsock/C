@@ -12,41 +12,68 @@ Connecting programs
 
 Root access allows you to do just about everything. 
 
-Linux commands
-    man : Takes an argument of the name of a program nd shows you a simplified doc
-    sudo dnf update : Updates all packages and dependencies
+System:
+    Packages
+        man : Takes an argument of the name of a program nd shows you a simplified doc
+        dnf:
+            sudo dnf update : Updates all packages and dependencies
+            dnf repolist : Lists all installed repos
+            remove : removes a package
 
-Directory work
-    df -h : shows disk space
-    cd : change directory
-	    ~ moves into home directory
-	    use ~ before typing the directory name to zoom into it
-    ls : lists files
-	    -a : lists hidden files
-	    -l : lists long version of files
-	    .. : lists files in parent folder
-    clear : clears the terminal log
-    reset : restarts the terminal
-    rm : Removes a file
-    pwd : Prints the current working directory
-    tree : Prints out a tree directory of wherever you are
-    exit : exits root user
-    mv filename.c .. : moves a file
-    cp : Copies a file
-    mkdir : Makes a directory
+    Directory work
+        df -h : shows disk space
+        cd : change directory
+	        ~ moves into home directory
+	        use ~ before typing the directory name to zoom into it
+        ls : lists files
+	        -a : lists hidden files
+	        -l : lists long version of files
+	        .. : lists files in parent folder
+        clear : clears the terminal log
+        reset : restarts the terminal
+        rm : Removes a file
+        pwd : Prints the current working directory
+        tree : Prints out a tree directory of wherever you are
+        exit : exits root user
+        mv filename.c .. : moves a file
+        cp : Copies a file
+        mkdir : Makes a directory
 
-Clamav anti virus
-    sudo freshclam : Updates virus definitions
-    clamscan -r / : Scans all files on computer, displaying each file
+Programs:
+    Clamav anti virus
+        sudo freshclam : Updates virus definitions
+        clamscan -r / : Scans all files on computer, displaying each file
 
-RPM (package manager)
-    rpm -i : Installs a package
-    rpm -q : Checks whether or not something is installed
-    rpm -qa : Shows all packages
+    RPM (package manager)
+        rpm -i : Installs a package
+        rpm -q : Checks whether or not something is installed
+        rpm -qa : Shows all packages
 
-Vim (text editor)
-    vim : Opens vim
-    vim filename.type : Opens file in vim
-    (while opened)
-        :q<enter> : quits
-        :help<enter>  : displays help
+    Vim (text editor)
+        vim : Opens vim
+        vim filename.type : Opens file in vim
+        (while opened)
+            :q<enter> : quits
+            :help<enter>  : displays help
+    
+    Screen (terminal multiplexer)
+        screen : starts screen
+            -S [session_name] : Names a session.
+            -r : Resumes screen
+            -ls : Shows session IDs
+            -S [session num] -X quit : Quits a screen session
+        ctr+a (the basis for all screeen commands. Only usable when process is open)
+            c : Opens a new screen
+            ? : Opens commands
+            " : Lists all windows
+            0 : Switch to window by number (change number to go to that window)
+            A : Rename the current window
+            S : Splits window horizontally into two regions
+            | : Splits the window vertically into two regions
+            tab : Switch input focus to next regions
+            ctr+a : Toggle between current and previous regions
+            q : close all regions but current one
+            x : Close the current region
+            d : Detach from screen session
+            c : Initializes a terminal in a region //important
+    
