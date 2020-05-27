@@ -13,6 +13,19 @@ Connecting programs
 Root access allows you to do just about everything. 
 
 System:
+    Date & Time:
+        date: Displays date
+        cal: Displays calendar
+        
+    Processes
+        top : Displays current processes, sorted by CPU usage
+            h : Displays help
+            k : Kills task
+        htop : Improved top, same functionality
+        kill : Kills a process given its process ID
+        pgrep : Searches for processes given a keyword as a parameter
+        pstree : Visualizes processes in a tree
+
     Packages
         man : Takes an argument of the name of a program nd shows you a simplified doc
         dnf:
@@ -21,6 +34,7 @@ System:
             remove : removes a package
 
     Directory work
+        ctr+D : Exits root user
         df -h : shows disk space
         cd : change directory
 	        ~ moves into home directory
@@ -29,6 +43,7 @@ System:
 	        -a : lists hidden files
 	        -l : lists long version of files
 	        .. : lists files in parent folder
+            -lh : Shows files with sizes in human readable format
         clear : clears the terminal log
         reset : restarts the terminal
         rm : Removes a file
@@ -38,8 +53,32 @@ System:
         mv filename.c .. : moves a file
         cp : Copies a file
         mkdir : Makes a directory
+        chmod : Changes file permissions.
+            Who:
+                u : User, owner of file
+                g : Group owners of the file
+                o : Others (people not governed by u or g file permissions)
+                a : All (all of the above)
+            What: 
+                - : Removes the permission
+                + : Grants the permission
+                = : Grants a permission and removes others
+            Which:
+                r : Read permission
+                w : Write permission
+                x : Execute permission
 
 Programs:
+    Git
+        git : Git home command
+            add : Adds files to the repository Directory
+            push : Pushes all commits and changes to the cloud
+            pull : Pulls all changes from the cloud
+
+            commit : Makes a commit
+                -m "": Adds a message to the commit. One for a title, one for a description
+
+
     Clamav anti virus
         sudo freshclam : Updates virus definitions
         clamscan -r / : Scans all files on computer, displaying each file
