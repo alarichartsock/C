@@ -5,6 +5,8 @@ Basic terminal
 
     When we run the echo command, the shell sees that it should execute the program echo, and then searches through the :-separated list of directories in $PATH for a file by that name. When it finds it, it runs it (assuming the file is executable; more on that later). We can find out which file is executed for a given program name using the which program. We can also bypass $PATH entirely by giving the path to the file we want to execute.
 
+    Hint: Double click a filename, middle click in terminal to paste it
+
 Connecting programs
     In the shell, programs have two primary “streams” associated with them: their input stream and their output stream. When the program tries to read input, it reads from the input stream, and when it prints something, it prints to its output stream. Normally, a program’s input and output are both your terminal. That is, your keyboard as input and your screen as output.
 
@@ -13,10 +15,30 @@ Connecting programs
 Root access allows you to do just about everything. 
 
 System:
+    Basic: 
+        clear : clears the terminal log
+        reset : restarts the terminal
+        exit : exits root user
+        su : Enters root user
+
+    Wildcards:
+        * : Any characters
+        ? : Any single character
+        [characters] : Any character that is of set character
+        [!characters] : Any character that is not of set character
+        [[:class:]] : Any character that is not a member of the specified class
+
+    Commonly used character classes:
+        [:alnum:] Any alphanumeric character
+        [:alpha:] Any alphabetic character
+        [:digit:] Any numeral
+        [:lower:] Any lowercase letter
+        [:upper:] Any uppercase letter
+
     Date & Time:
         date: Displays date
         cal: Displays calendar
-        
+
     Processes
         top : Displays current processes, sorted by CPU usage
             h : Displays help
@@ -25,6 +47,8 @@ System:
         kill : Kills a process given its process ID
         pgrep : Searches for processes given a keyword as a parameter
         pstree : Visualizes processes in a tree
+        df : Displays free space on disks
+        exit : Exits terminal session
 
     Packages
         man : Takes an argument of the name of a program nd shows you a simplified doc
@@ -33,26 +57,41 @@ System:
             dnf repolist : Lists all installed repos
             remove : removes a package
 
-    Directory work
-        ctr+D : Exits root user
+    Directory and files
         df -h : shows disk space
-        cd : change directory
-	        ~ moves into home directory
-	        use ~ before typing the directory name to zoom into it
-        ls : lists files
-	        -a : lists hidden files
-	        -l : lists long version of files
-	        .. : lists files in parent folder
-            -lh : Shows files with sizes in human readable format
-        clear : clears the terminal log
-        reset : restarts the terminal
+        file ./filename : Prints a brief description of the file
+        less ./filename : Views a text file
+            page up : scroll forward one page
+            page down : scroll backward one page
+            q : Quit less
+
+        Traversal:
+            cd : change directory
+	            ~ moves into home directory
+	            use ~ before typing the directory name to zoom into it
+                - : Changes directory to previous directory
+            ls : lists files
+	            -a : lists hidden files
+	            -l : lists long version of files
+	            .. : lists files in parent folder
+                -lh : Shows files with sizes in human readable format
+                -t : Sort by modification time
+            tree : Prints out a tree directory of wherever you are
+
+        Manipulation: 
+
         rm : Removes a file
+            -i : Prompts the user before deletion
+            -r : Recursively deletes directories, meaning if a directory has subdirectories then delete them too.
+            -v : Displays more info about deletion
         pwd : Prints the current working directory
-        tree : Prints out a tree directory of wherever you are
-        exit : exits root user
         mv filename.c .. : moves a file
         cp : Copies a file
+            -i : Prompts the user before copying
         mkdir : Makes a directory
+        ln : Creates links. 
+            -i : Creates a symbolic link
+
         chmod : Changes file permissions.
             Who:
                 u : User, owner of file
@@ -115,4 +154,29 @@ Programs:
             x : Close the current region
             d : Detach from screen session
             c : Initializes a terminal in a region //important
-    
+
+The Linux File Structure
+
+    / : The root directory where everything begins
+    /bin : Contains binaries required for booting
+    /boot : Contains the linux kernel, initial ram usage, and the boot loader
+    /dev : A special directory
+    /etc : Contains all system wide config files
+    /home : Contains user based files
+    /lib : Contains shared library files by core system programs
+    /lost+found : Used in case of partial recovery
+    /media : Contains mount points for removable media such as USB drives, external hard drives, etc
+    /mnt : On older systems it contains mount ports for devices that are mounted manually
+    /opt : Stores optional software, usually commercial software
+    /proc : A virtual filesystem maintained by the linux kernel. 
+    /root : Home directory for the root account
+    /sbin : Contains sytem binaries
+    /tmp : Contains storage for temporary, transient files
+    /usr : Contains all of the files used by linux users
+        /bin : Contains all of the files installed by the distribution. Not uncommon for this directory to have thousands of files.
+        /local : Contains programs that are not included with Linux distribution.
+        /sbin : Contains system administration programs
+        /share : Contains shared data, like icons and sounds.
+            /doc : Contains documentation for programs
+    /var : Directory where data that is likely to change is stored.
+    /var/log : Contains log files of your linux system.
