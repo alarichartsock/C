@@ -7,6 +7,8 @@ Basic terminal
 
     Hint: Double click a filename, middle click in terminal to paste it
 
+    Use a ; in between commands to do multiple things at once.
+
 Connecting programs
     In the shell, programs have two primary “streams” associated with them: their input stream and their output stream. When the program tries to read input, it reads from the input stream, and when it prints something, it prints to its output stream. Normally, a program’s input and output are both your terminal. That is, your keyboard as input and your screen as output.
 
@@ -19,7 +21,21 @@ System:
         clear : clears the terminal log
         reset : restarts the terminal
         exit : exits root user
-        su : Enters root user
+        su : Enters root userz
+    
+    Documentation:
+        type : Shows a commands type
+        which : Displays an executables location
+        help : Returns the help page for some commands
+        man : Returns the manual page for some commands
+        apropros : Displays appropriate commmands
+        whatis : Displays a brief description of a command
+        info : Displays a programs info entry
+
+    Custom commands:
+        alias name='instructions' : Sets an alias
+        unalias name : Removes an alias
+        
 
     Wildcards:
         * : Any characters
