@@ -1,0 +1,1 @@
+These are my completed exercises while I was going through "The C Programming Language" by Kernighan and Ritchie.
