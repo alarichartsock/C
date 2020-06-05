@@ -2,12 +2,11 @@
 
 int main() {
 
-	int i = 7;
-	int j = 7;
-
-	int k = ~i;
-	
-	printf("%i",k);
 
 	return 0;
+}
+
+int rightrot(int x, int n)
+{
+	return (x >> n) | (x << (s - n));
 }

@@ -17,11 +17,28 @@ Connecting programs
 Root access allows you to do just about everything. 
 
 System:
+    Redirection:
+        > : Redirects output to specified directory, overwriting any file with the same name
+        2> : Redirects standard error to specified directory.
+        >> : Redirects output to specified directory, appending if there is already an existing file.
+        cat : The cat command reads one or more files and copies them to standard out-put
+        | : Redirects output of left handed keyword to the input of the right handed keyword
+            ex :
+                ls -l /usr/bin | less
+                ls /bin /usr/bin | sort | less
+        uniq : Filter that removes duplicate lines
+        wc : Prints lines or word count
+        grep : Prints lines containing a pattern
+        head : Prints the first 10 lines
+        tail : Prints the last 10 lines
+
     Basic: 
         clear : clears the terminal log
         reset : restarts the terminal
         exit : exits root user
         su : Enters root userz
+
+
     
     Documentation:
         type : Shows a commands type
