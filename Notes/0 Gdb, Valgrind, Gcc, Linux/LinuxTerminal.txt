@@ -37,8 +37,6 @@ System:
         reset : restarts the terminal
         exit : exits root user
         su : Enters root userz
-
-
     
     Documentation:
         type : Shows a commands type
@@ -161,11 +159,61 @@ Programs:
         rpm -qa : Shows all packages
 
     Vim (text editor)
+        Commands are usually operators and motions. For example, the operator d and the motion w. Add a count to a motion repeats it that many times 
+        Use the backspace key to correct errors while typing.
         vim : Opens vim
         vim filename.type : Opens file in vim
         (while opened)
-            :q<enter> : quits
-            :help<enter>  : displays help
+            Motions:
+                w - until the start of the next word, EXCLUDING its first character.
+                e - to the end of the current word, INCLUDING the last character.
+                $ - to the end of the line, INCLUDING the last character.
+            Normal mode: 
+                :help<enter>  : displays help
+                :! : Executes an external command
+                Saving:
+                    :q<enter> : quits without saving
+                    :wq<enter> : quits while saving a file
+                    :w FILENAME : Saves and quits the file
+                    To save part of a file, type v motion :w FILENAME
+                Moving: 
+                    ctr + g : Cursor location and file status
+                    j : Down
+                    k : Up
+                    h : Left
+                    l : Right
+                    0 : Moves to the start of the line
+                    G : Moves to the bottom of the file
+                    gg : Moves to the start of the file
+                    #G : Moves to line #. Replace # with line number
+                    / : Search
+                        n : Cycles through search results
+                        N : Cycles through search results in the opposite direction
+                        ctrl-0 : Goes back to search results
+                        ctr-i : Goes forward
+                    % : Jumps to matching parenthesis
+                Editing:
+                    y : Copies text
+                    p : Pastes text
+                    R : Goes into replace mode
+                    s/old/new : Substitutes old with new
+                        Adding g makes the change globally in the line
+                    x : Deletes the character under the cursor
+                    i : Insert text
+                    a : Append text to the end of the line
+                    d : delete
+                    u : Undo last command
+                    U : Fix a whole line
+                    ctr r : Redo
+                    dd : Delete a whole line
+                    p : Puts previously deleted line back into the file
+                    r : Replaces a character
+                    c : Deletes and goes into insert mode
+                    :r FILENAME : Retrieves disk file FILENAME and puts it below cursor
+                    o : Opens a line below the cursor and goes into edit mode
+            Editing mode:
+                esc : Exit text editing mode
+            
     
     Screen (terminal multiplexer)
         screen : starts screen
