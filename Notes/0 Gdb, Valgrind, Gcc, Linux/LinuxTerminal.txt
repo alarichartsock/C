@@ -89,6 +89,7 @@ System:
             remove : removes a package
 
     Directory and files
+        find filename : Searches for file
         df -h : shows disk space
         file ./filename : Prints a brief description of the file
         less ./filename : Views a text file
