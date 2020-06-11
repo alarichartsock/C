@@ -36,8 +36,9 @@ System:
         clear : clears the terminal log
         reset : restarts the terminal
         exit : exits root user
-        su : Enters root userz
-    
+        su : Enters root user
+		[user] : Changes account    
+
     Documentation:
         type : Shows a commands type
         which : Displays an executables location
@@ -244,6 +245,8 @@ The Linux File Structure
     /boot : Contains the linux kernel, initial ram usage, and the boot loader
     /dev : A special directory
     /etc : Contains all system wide config files
+	/passwd : Contains information about the users on the system
+	/shadow : Contains the hashes for user passwords. Can be broken with hashcat
     /home : Contains user based files
     /lib : Contains shared library files by core system programs
     /lost+found : Used in case of partial recovery
