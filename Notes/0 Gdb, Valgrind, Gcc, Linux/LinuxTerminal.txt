@@ -1,3 +1,5 @@
+These are my notes on bash, and the linux command line in general. This probably should've been its own repository as it has less to do with C programming, but it's here for now.
+
 Basic terminal
     missing:~$ : This shows you that you are on the machine missing, that you are not the rot directory because of the $
 
@@ -9,12 +11,61 @@ Basic terminal
 
     Use a ; in between commands to do multiple things at once.
 
+Expansion
+
+    The mechanism by which wildcards work is called pathname expansion. There is also tilde expansion (~), arithmetic expansion, brace expansion, and parameter expansion.  Brace expansion is really weird. Examples:
+
+    echo {Z..A}
+    	>> Z Y X W V U T S R Q P O N M L K J I H G F E D C B A
+    echo Number_{1..5}
+    	>> Number_1 Number_2 Number_3 Number_4 Number_5
+    echo Front-{A,B,C}-Back
+    	>> Front-A-Back Front-B-Back Front-C-Back
+
+    Brace expanson is good for making a lot of directories at once:
+
+    mkdir {2009..2011}-0{1..9} {2009..2011}-{10..12}
+    ls
+    	>>2009-01 2009-07 2010-01 2010-07 2011-01 2011-07
+    	>>2009-02 2009-08 2010-02 2010-08 2011-02 2011-08
+    	>>2009-03 2009-09 2010-03 2010-09 2011-03 2011-09
+    	>>2009-04 2009-10 2010-04 2010-10 2011-04 2011-10
+    	>>2009-05 2009-11 2010-05 2010-11 2011-05 2011-11
+    	>>2009-06 2009-12 2010-06 2010-12 2011-06 2011-12
+
+    Parameter expansion is just printing out environment variables (I think). To get a list of variables, type printenv | less
+
+    Double quotes prevents word splitting, pathname expansion, tilde expansion, and brace expansion are suppressed, but parameter expansion, arithmetic expansion, and command substitution are still carried out.
+
+    Single quotes suppress all expansions.
+
+    The / character will prevent expansion of a single character. 
+
+Command Substitution
+
+    Command substitution allows us to use the output of a command as an expansion.
+
+    Example:
+
+    echo $(ls)
+        >>Desktop Documents ls-output.txt Music Pictures Public Templates Videos
+
+    file $(ls /usr/bin/* | grep zip)
+    
+
+Bash arithmetic operators
+
+    + : Addition
+    - : Subtraction
+    * : Multiplication
+    / : Division
+    % : Modulo (remainder)
+    ** : Exponentiation
+
 Connecting programs
     In the shell, programs have two primary “streams” associated with them: their input stream and their output stream. When the program tries to read input, it reads from the input stream, and when it prints something, it prints to its output stream. Normally, a program’s input and output are both your terminal. That is, your keyboard as input and your screen as output.
 
     You can also use >> to append to a file. Where this kind of input/output redirection really shines is in the use of pipes. The | operator lets you “chain” programs such that the output of one is the input of another:
-
-Root access allows you to do just about everything. 
 
 System:
     Redirection:
@@ -37,7 +88,7 @@ System:
         reset : restarts the terminal
         exit : exits root user
         su : Enters root user
-		[user] : Changes account    
+		    [user] : Changes account    
 
     Documentation:
         type : Shows a commands type
@@ -191,7 +242,8 @@ Programs:
                     / : Search
                         n : Cycles through search results
                         N : Cycles through search results in the opposite direction
-                        ctrl-0 : Goes back to search results
+                        ctrl-0 : Goes back to search resultsls
+
                         ctr-i : Goes forward
                     % : Jumps to matching parenthesis
                 Editing:
