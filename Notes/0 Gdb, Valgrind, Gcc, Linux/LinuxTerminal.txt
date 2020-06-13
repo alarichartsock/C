@@ -68,6 +68,29 @@ Connecting programs
     You can also use >> to append to a file. Where this kind of input/output redirection really shines is in the use of pipes. The | operator lets you “chain” programs such that the output of one is the input of another:
 
 System:
+    Cursor Movement:
+	ctr a : Move cursor to beginning of line
+	ctr e : Move cursor to end of line
+	ctr f : Move cursor forward one character, same as right arrow key
+	ctr b : Move cursor backward one character, same as left arrow key
+	alt f : Move cursor forward one word
+	alt b : Move cursos backward one word
+	ctr l : Clear the screen and move the cursor to the top left corner. Same as clear command
+
+    Text editing:
+	ctr d : Delete the character at the cursor location
+	ctr t : Transpose the character at the cursor location with the one preceding it
+	alt t : Transpose the word at the cursor location with the one preceding it 
+	alt l : Convert the characters from the cursor location to the end of the word to lowercase
+	alt u : Convert the characters from the cursor location to the end of the word to uppercase
+
+    Cut and Paste Commands (killing = cutting, yanking = pasting)
+	ctr k : Kill text from the cursor location to the end of the line
+	ctr u : Kill text from the cursor location to the beginning of the line
+	alt d : Kill text from the cursor location to the end of the current word
+	alt backspace : Kill text from the cursor location to the beginning of the current word. If the cursor is at the beginning of the word, kill the previous word
+	ctr y : Yank text from the kill ring and insert it at the cursor location
+
     Redirection:
         > : Redirects output to specified directory, overwriting any file with the same name
         2> : Redirects standard error to specified directory.
@@ -88,7 +111,8 @@ System:
         reset : restarts the terminal
         exit : exits root user
         su : Enters root user
-		    [user] : Changes account    
+		[user] : Changes account    
+	history : Displays command history
 
     Documentation:
         type : Shows a commands type
@@ -99,11 +123,15 @@ System:
         whatis : Displays a brief description of a command
         info : Displays a programs info entry
 
+    Completion
+	tab : Autocompletes
+	alt ? : Display list of possible completions. Or, you can press the tab key a second time.
+	alt * : Insert all possible completions. Useful when you want to use more than one possible match
+
     Custom commands:
         alias name='instructions' : Sets an alias
         unalias name : Removes an alias
         
-
     Wildcards:
         * : Any characters
         ? : Any single character
@@ -148,6 +176,7 @@ System:
             page up : scroll forward one page
             page down : scroll backward one page
             q : Quit less
+	stat : Prints a files stats	
 
         Traversal:
             cd : change directory
@@ -161,6 +190,7 @@ System:
                 -lh : Shows files with sizes in human readable format
                 -t : Sort by modification time
             tree : Prints out a tree directory of wherever you are
+
 
         Manipulation: 
 
