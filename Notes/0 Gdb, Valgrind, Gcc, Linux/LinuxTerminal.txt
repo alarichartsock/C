@@ -51,7 +51,6 @@ Command Substitution
         >>Desktop Documents ls-output.txt Music Pictures Public Templates Videos
 
     file $(ls /usr/bin/* | grep zip)
-    
 
 Bash arithmetic operators
 
@@ -167,7 +166,7 @@ System:
             sudo dnf update : Updates all packages and dependencies
             dnf repolist : Lists all installed repos
             remove : removes a package
-
+    
     Directory and files
         find filename : Searches for file
         df -h : shows disk space
@@ -206,7 +205,24 @@ System:
         ln : Creates links. 
             -i : Creates a symbolic link
 
-        chmod : Changes file permissions.
+
+    Permissions:
+	File Attributes:
+		1. File type
+			- : A regular file
+			d : A directory
+			l : A symbolic link
+			c : A character special file
+			b : A block special file
+		2-4. Owner attributes
+			r : Allows a file to be opened and read
+			w : Allows a file to be written to or trunicates, but no renamed or delted
+			x : Allows a file to be executed
+		5-7. Group permissions
+			r , w, x, same as above
+		8-10. World permissions
+			r, w, x, same as above
+	chmod : Changes file permissions.
             Who:
                 u : User, owner of file
                 g : Group owners of the file
@@ -220,6 +236,13 @@ System:
                 r : Read permission
                 w : Write permission
                 x : Execute permission
+	id : Displays user identity
+	umask : Set the default file permissions
+	su : Run the shell as another user
+	sudo : Execute a command as another user
+	chown : Change a file's owner
+	chgrp : Change a file's group ownership
+	passwd : Change a user's password
 
 Programs:
     Git
