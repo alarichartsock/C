@@ -240,7 +240,7 @@ System:
 	umask : Set the default file permissions
 	su : Run the shell as another user
 	sudo : Execute a command as another user
-	chown : Change a file's owner
+	chown [owner][:group]] file : Change a file's owner and group
 	chgrp : Change a file's group ownership
 	passwd : Change a user's password
 
@@ -250,7 +250,6 @@ Programs:
             add : Adds files to the repository Directory
             push : Pushes all commits and changes to the cloud
             pull : Pulls all changes from the cloud
-
             commit : Makes a commit
                 -m "": Adds a message to the commit. One for a title, one for a description
 
