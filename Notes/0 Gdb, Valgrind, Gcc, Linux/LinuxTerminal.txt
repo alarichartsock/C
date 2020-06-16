@@ -190,21 +190,24 @@ System:
                 -t : Sort by modification time
             tree : Prints out a tree directory of wherever you are
 
-
         Manipulation: 
 
         rm : Removes a file
             -i : Prompts the user before deletion
             -r : Recursively deletes directories, meaning if a directory has subdirectories then delete them too.
             -v : Displays more info about deletion
+            -f : Forces deletion without prompt
+            {dir1,dir2,dir3} : Removes multiple files/directories  
+            {1..3} : Expands to remove directies including values between parameters
         pwd : Prints the current working directory
         mv filename.c .. : moves a file
         cp : Copies a file
             -i : Prompts the user before copying
         mkdir : Makes a directory
+            {dir1,dir2,dir3} : Makes multiple directories  
+            {1..3} : Expands to create directies including values between parameters
         ln : Creates links. 
             -i : Creates a symbolic link
-
 
     Permissions:
 	File Attributes:
@@ -240,6 +243,7 @@ System:
 	umask : Set the default file permissions
 	su : Run the shell as another user
 	sudo : Execute a command as another user
+		!! : Executes last command as sudo
 	chown [owner][:group]] file : Change a file's owner and group
 	chgrp : Change a file's group ownership
 	passwd : Change a user's password
