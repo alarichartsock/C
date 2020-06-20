@@ -1,8 +1,0 @@
-Before debuggging, always compile gcc filename.c -g.
-
-To add breakpoints:
-	b line#
-To clear breakpoints:
-	clear line#
-To print variables:
-	p variable

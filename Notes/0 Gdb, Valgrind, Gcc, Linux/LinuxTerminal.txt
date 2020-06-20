@@ -128,8 +128,8 @@ System:
 	alt * : Insert all possible completions. Useful when you want to use more than one possible match
 
     Custom commands:
-        alias name='instructions' : Sets an alias
-        unalias name : Removes an alias
+        alias [name]='instructions' : Sets an alias
+        unalias [name] : Removes an alias
         
     Wildcards:
         * : Any characters
@@ -155,18 +155,44 @@ System:
             k : Kills task
         htop : Improved top, same functionality
         kill : Kills a process given its process ID
+		-INT : Interrupt. Usually will terminate a program
+		-KILL : Default kill flag. Sends a message to the kernel, not the program, and immediately kills it.
+		-TERM : Terminate
+		-CONT : Continue. Restores a process after a STOP signal
+		-STOP : Pauses the proram, like Kill it is sent to the kernel.
         pgrep : Searches for processes given a keyword as a parameter
         pstree : Visualizes processes in a tree
+	vmstat : Outputs a snapshot of the resource usage
+	xload : Shows a graph of usage over time
+	tload : Same as above but shows the graph in the terminal
         df : Displays free space on disks
         exit : Exits terminal session
+	ps : Report a snapshot of current processes. R means running, S means sleeping, D means uniterruptible sleep, T means stopped, Z means defunct or "zombie", < means high priority, and N means low priority.
+		x : Shows a larger detail of processes
+	top : Displays tasks
+	jobs : List active jobs
+	bg : Place a job in the background
+	fg : Place a job in the foreground
+	killall : Kils processes by name
+	shutdown : Shutdown or reboot the system
+	ctr C : Interrupts a program, politely telling it to terminate
+	ctr Z : Stops a process
 
     Packages
         man : Takes an argument of the name of a program nd shows you a simplified doc
-        dnf:
-            sudo dnf update : Updates all packages and dependencies
-            dnf repolist : Lists all installed repos
-            remove : removes a package
-    
+	rpm :
+		-i [package_file] : Installs a package file
+		-qa : Lists installed packages
+        dnf :
+		sudo dnf update : Updates all packages and dependencies
+		dnf repolist : Lists all installed repos
+		remove : removes a package
+	yum:
+		search [search_string] : Searches for repositories
+		install [package_name]
+		erase [package_name]
+		update
+
     Directory and files
         find filename : Searches for file
         df -h : shows disk space
@@ -177,37 +203,87 @@ System:
             q : Quit less
 	stat : Prints a files stats	
 
-        Traversal:
-            cd : change directory
-	            ~ moves into home directory
-	            use ~ before typing the directory name to zoom into it
-                - : Changes directory to previous directory
-            ls : lists files
-	            -a : lists hidden files
-	            -l : lists long version of files
-	            .. : lists files in parent folder
+        Traversal 
+		cd : change directory
+	        	~ moves into home directory
+	        	use ~ before typing the directory name to zoom into it
+                	- : Changes directory to previous directory
+		ls : lists files
+	        	-a : lists hidden files
+	        	-l : lists long version of files
+	        	.. : lists files in parent folder
                 -lh : Shows files with sizes in human readable format
                 -t : Sort by modification time
-            tree : Prints out a tree directory of wherever you are
+            	tree : Prints out a tree directory of wherever you are
+	
+	Searching for files
+		locate : Find files by name
+		find : Search for files in a directory hierarchy
+			-type : Match files or directories who are of this type
+				b : Block special device file
+				b : Find character special device file
+				d : Find directories
+				f : Find regular files
+				l : Find symbolic linksi
+			-size : Match files or directories who are less than this size (replace - with + for larger than this size)
+				b : 512 bytes blocks (default is no unit is specified)
+				c : Bytes
+				w : 2 byte words
+				k : Kilobytes (units of 1024 bytes)
+				M : Megabytes (Units of 1,048,576 bytes)
+				G : Gigabytes (Units of 1,073,741,824 bytes)
+			-name : Match files or directories with the specified wildcard pattern
+			-empty : Match files or directories that are empty
+			-delete : Deletes the matching files
+			-ls : Perform the equivalence of ls to the matching file
+			-print : Output the full pathname of the matching file.
+			ctime n : 
+		xargs : Build and execute command lines from standard input
+		touch : Change file times
+		stat : Display file or filesystem status
+		grep : Searches for patterns in each file
+			-i : Ignore case conditions
+
+	Storage media
+		mount : Mounts a filesystem
+		umount : Unmounts a filesystem
+		fdisk : Partition table manipulator
+		fsck : Check and repair a filesystem
+		mkfs : Create a filesystem
+		dd : Write block oriented data to a device
+		genisoimage : Generate an ISO 9660 image file
+		wodim : Write data to optical storage media
+		md5sum : Calculate an MD5 checksum
+
+	Networking
+		ping: Send an echo request to network hosts
+		traceroute : Print the route packets trace to a network host
+		netstat : Print network connections, routing tables, interface statistics, masquerad connections, and multicast memberships
+		ftp : Internet file transfer program
+		lftp : Improved ftp
+		wget : Non-interactive network downloader
+		ssh : OpenSSH client
+		scp : Secure copy (remote file copy program)
+		sftp : Secure file transfer program
+		
 
         Manipulation: 
-
-        rm : Removes a file
-            -i : Prompts the user before deletion
-            -r : Recursively deletes directories, meaning if a directory has subdirectories then delete them too.
-            -v : Displays more info about deletion
-            -f : Forces deletion without prompt
-            {dir1,dir2,dir3} : Removes multiple files/directories  
-            {1..3} : Expands to remove directies including values between parameters
-        pwd : Prints the current working directory
-        mv filename.c .. : moves a file
-        cp : Copies a file
-            -i : Prompts the user before copying
-        mkdir : Makes a directory
-            {dir1,dir2,dir3} : Makes multiple directories  
-            {1..3} : Expands to create directies including values between parameters
-        ln : Creates links. 
-            -i : Creates a symbolic link
+       		 rm : Removes a file
+           		 -i : Prompts the user before deletion
+           		 -r : Recursively deletes directories, meaning if a directory has subdirectories then delete them too.
+           		 -v : Displays more info about deletion
+           		 -f : Forces deletion without prompt
+           		 {dir1,dir2,dir3} : Removes multiple files/directories  
+           		 {1..3} : Expands to remove directies including values between parameters
+       		pwd : Prints the current working directory
+       		mv filename.c .. : moves a file
+       		cp : Copies a file
+           		-i : Prompts the user before copying
+       		mkdir : Makes a directory
+            		{dir1,dir2,dir3} : Makes multiple directories  
+            		{1..3} : Expands to create directies including values between parameters
+        	ln : Creates links. 
+            		-i : Creates a symbolic link
 
     Permissions:
 	File Attributes:
@@ -255,8 +331,7 @@ Programs:
             push : Pushes all commits and changes to the cloud
             pull : Pulls all changes from the cloud
             commit : Makes a commit
-                -m "": Adds a message to the commit. One for a title, one for a description
-
+                -m "[message]": Adds a message to the commit. One for a title, one for a description
 
     Clamav anti virus
         sudo freshclam : Updates virus definitions
@@ -273,103 +348,126 @@ Programs:
         vim : Opens vim
         vim filename.type : Opens file in vim
         (while opened)
-            Motions:
-                w - until the start of the next word, EXCLUDING its first character.
-                e - to the end of the current word, INCLUDING the last character.
-                $ - to the end of the line, INCLUDING the last character.
-            Normal mode: 
-                :help<enter>  : displays help
-                :! : Executes an external command
-                Saving:
-                    :q<enter> : quits without saving
-                    :wq<enter> : quits while saving a file
-                    :w FILENAME : Saves and quits the file
-                    To save part of a file, type v motion :w FILENAME
-                Moving: 
-                    ctr + g : Cursor location and file status
-                    j : Down
-                    k : Up
-                    h : Left
-                    l : Right
-                    0 : Moves to the start of the line
-                    G : Moves to the bottom of the file
-                    gg : Moves to the start of the file
-                    #G : Moves to line #. Replace # with line number
-                    / : Search
-                        n : Cycles through search results
-                        N : Cycles through search results in the opposite direction
-                        ctrl-0 : Goes back to search resultsls
-
-                        ctr-i : Goes forward
-                    % : Jumps to matching parenthesis
-                Editing:
-                    y : Copies text
-                    p : Pastes text
-                    R : Goes into replace mode
-                    s/old/new : Substitutes old with new
-                        Adding g makes the change globally in the line
-                    x : Deletes the character under the cursor
-                    i : Insert text
-                    a : Append text to the end of the line
-                    d : delete
-                    u : Undo last command
+        Motions:
+            w - until the start of the next word, EXCLUDING its first character.
+            e - to the end of the current word, INCLUDING the last character.
+            $ - to the end of the line, INCLUDING the last character.
+        Normal mode: 
+            :help<enter>  : displays help
+            :! : Executes an external command
+            Saving:
+                :q<enter> : quits without saving
+                :wq<enter> : quits while saving a file
+                :w [filename] : Saves and quits the file
+                To save part of a file, type v motion :w FILENAME
+            Moving: 
+                ctr + g : Cursor location and file status
+                j : Down
+                k : Up
+                h : Left
+                l : Right
+                0 : Moves to the start of the line
+                G : Moves to the bottom of the file
+                gg : Moves to the start of the file
+                #G : Moves to line #. Replace # with line number
+                / : Search
+                    n : Cycles through search results
+                    N : Cycles through search results in the opposite direction
+                    ctrl-0 : Goes back to search resultsls
+                    ctr-i : Goes forward
+                % : Jumps to matching parenthesis
                     U : Fix a whole line
-                    ctr r : Redo
-                    dd : Delete a whole line
-                    p : Puts previously deleted line back into the file
-                    r : Replaces a character
-                    c : Deletes and goes into insert mode
-                    :r FILENAME : Retrieves disk file FILENAME and puts it below cursor
-                    o : Opens a line below the cursor and goes into edit mode
-            Editing mode:
-                esc : Exit text editing mode
-            
-    
+            ctr r : Redo
+            dd : Delete a whole line
+            p : Puts previously deleted line back into the file
+            r : Replaces a character
+            c : Deletes and goes into insert mode
+		    :r FILENAME : Retrieves disk file FILENAME and puts it below cursor
+		    o : Opens a line below the cursor and goes into edit mode
+        Editing:
+            y : Copies text
+            p : Pastes text
+            R : Goes into replace mode
+            s/old/new : Substitutes old with new
+                Adding g makes the change globally in the line
+            x : Deletes the character under the cursor
+            i : Insert text
+            a : Append text to the end of the line
+            d : delete
+            u : Undo last command
+
+	Editing mode:
+        esc : Exit text editing mode
+
+    Gdb
+	Before debuggging, always compile gcc filename.c -g.
+        b # : Adds a breakpoint
+        clear # : Clears a breakpoint
+	list : Shows breakpoints
+        p [variable] : Prints a variable
+	disassemble [function] : Disassembles code into machine code
+ 	x/[number][format][size]  [memory address] : Examines a point in memory.
+		formats: 
+		o : Display in Octal
+		x : Display in hexadecimal
+		u : Display in usigned, standard base 10 decimal
+		t : Display in binary
+		i : Display instructions
+		c : Looks up character ASCII values
+		s : Displays an entire string in memory
+		size:
+		b : A single byte
+		h : A halfword, which is two bytes in size
+		w : A word, which if four bytes in size
+		g : A giant, which is eight bytes in size    
+	nexti : Displays next instruction
+	bt : Backtraces through stack function calls
+
     Screen (terminal multiplexer)
-        screen : starts screen
-            -S [session_name] : Names a session.
-            -r : Resumes screen
-            -ls : Shows session IDs
-            -S [session num] -X quit : Quits a screen session
+	screen : starts screen
+        	-S [session_name] : Names a session.
+        	-r : Resumes screen
+        	-ls : Shows session IDs
+        	-S [session num] -X quit : Quits a screen session
         ctr+a (the basis for all screeen commands. Only usable when process is open)
-            c : Opens a new screen
-            ? : Opens commands
-            " : Lists all windows
-            0 : Switch to window by number (change number to go to that window)
-            A : Rename the current window
-            S : Splits window horizontally into two regions
-            | : Splits the window vertically into two regions
-            tab : Switch input focus to next regions
-            ctr+a : Toggle between current and previous regions
-            q : close all regions but current one
-            x : Close the current region
-            d : Detach from screen session
-            c : Initializes a terminal in a region //important
+        	c : Opens a new screen
+        	? : Opens commands
+       		" : Lists all windows
+           	0 : Switch to window by number (change number to go to that window)
+           	A : Rename the current window
+           	S : Splits window horizontally into two regions
+           	| : Splits the window vertically into two regions
+           	tab : Switch input focus to next regions
+           	ctr+a : Toggle between current and previous regions
+           	q : close all regions but current one
+           	x : Close the current region
+           	d : Detach from screen session
+           	c : Initializes a terminal in a region //important
 
-The Linux File Structure
+    The Linux File Structure
 
-    / : The root directory where everything begins
-    /bin : Contains binaries required for booting
-    /boot : Contains the linux kernel, initial ram usage, and the boot loader
-    /dev : A special directory
-    /etc : Contains all system wide config files
-	/passwd : Contains information about the users on the system
-	/shadow : Contains the hashes for user passwords. Can be broken with hashcat
-    /home : Contains user based files
-    /lib : Contains shared library files by core system programs
-    /lost+found : Used in case of partial recovery
-    /media : Contains mount points for removable media such as USB drives, external hard drives, etc
-    /mnt : On older systems it contains mount ports for devices that are mounted manually
-    /opt : Stores optional software, usually commercial software
-    /proc : A virtual filesystem maintained by the linux kernel. 
-    /root : Home directory for the root account
-    /sbin : Contains sytem binaries
-    /tmp : Contains storage for temporary, transient files
-    /usr : Contains all of the files used by linux users
-        /bin : Contains all of the files installed by the distribution. Not uncommon for this directory to have thousands of files.
-        /local : Contains programs that are not included with Linux distribution.
-        /sbin : Contains system administration programs
+	/ : The root directory where everything begins
+	/bin : Contains binaries required for booting
+	/boot : Contains the linux kernel, initial ram usage, and the boot loader
+	/dev : A special directory
+	/etc : Contains all system wide config files
+		/passwd : Contains information about the users on the system
+		/shadow : Contains the hashes for user passwords. Can be broken with hashcat
+	/home : Contains user based files
+	/lib : Contains shared library files by core system programs
+	/lost+found : Used in case of partial recovery
+	/media : Contains mount points for removable media such as USB drives, external hard drives, etc
+	/mnt : On older systems it contains mount ports for devices that are mounted manually
+	/opt : Stores optional software, usually commercial software
+	/proc : A virtual filesystem maintained by the linux kernel. 
+	/root : Home directory for the root account
+	/sbin : Contains sytem binaries
+	/tmp : Contains storage for temporary, transient files
+	/usr : Contains all of the files used by linux users
+	/bin : Contains all of the files installed by the distribution. Not uncommon for this directory to have thousands of files.
+	/local : Contains programs that are not included with Linux distribution.
+	/sbin : Contains system administration programs
         /share : Contains shared data, like icons and sounds.
-            /doc : Contains documentation for programs
-    /var : Directory where data that is likely to change is stored.
-    /var/log : Contains log files of your linux system.
+		/doc : Contains documentation for programs
+	/var : Directory where data that is likely to change is stored.
+	/var/log : Contains log files of your linux system.
