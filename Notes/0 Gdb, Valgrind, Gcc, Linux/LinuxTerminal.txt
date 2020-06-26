@@ -244,6 +244,21 @@ System:
 		grep : Searches for patterns in each file
 			-i : Ignore case conditions
 
+	Compression
+		gzip : Compresses a selected file
+			-t : Test the integrity of a compressed file
+			-d : Decompress the file
+			-number : Set amount of compression between 1 (fastest, least compression) to 9 (slowest, most compression).
+		bzip2 : Compresses a file with more compression at the cost of speed. Same usage as gzip
+		tar : Tape archiving utility 
+			c : Create an archive from a list of files and/or directories
+			x : Extract an archive
+			r : Append specified pathnames to the end of an archive
+			t : List the contents of an archive
+	
+	Sync
+		rsync : Backs up files. Syntax : rsync options source destination
+
 	Storage media
 		mount : Mounts a filesystem
 		umount : Unmounts a filesystem
@@ -422,6 +437,7 @@ Programs:
 		g : A giant, which is eight bytes in size    
 	nexti : Displays next instruction
 	bt : Backtraces through stack function calls
+		full : Displays a detailed backtrace summary
 
     Screen (terminal multiplexer)
 	screen : starts screen
