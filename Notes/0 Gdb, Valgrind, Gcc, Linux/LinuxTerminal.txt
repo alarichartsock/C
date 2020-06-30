@@ -101,7 +101,6 @@ System:
                 ls /bin /usr/bin | sort | less
         uniq : Filter that removes duplicate lines
         wc : Prints lines or word count
-        grep : Prints lines containing a pattern
         head : Prints the first 10 lines
         tail : Prints the last 10 lines
 
@@ -178,20 +177,25 @@ System:
 	ctr C : Interrupts a program, politely telling it to terminate
 	ctr Z : Stops a process
 
-    Packages
-        man : Takes an argument of the name of a program nd shows you a simplified doc
-	rpm :
-		-i [package_file] : Installs a package file
-		-qa : Lists installed packages
-        dnf :
-		sudo dnf update : Updates all packages and dependencies
-		dnf repolist : Lists all installed repos
-		remove : removes a package
-	yum:
-		search [search_string] : Searches for repositories
-		install [package_name]
-		erase [package_name]
-		update
+	Regex
+		grep : Global regular expression print. Searches text files for the occurrence of a text pattern.
+			-i : Ignore case. Do not distinguish between upper and lower case characters.
+			-v : Invert match, print lines that do not contain a match.	
+	
+	Packages
+        	man : Takes an argument of the name of a program nd shows you a simplified doc
+		rpm :
+			-i [package_file] : Installs a package file
+			-qa : Lists installed packages
+        	dnf :
+			sudo dnf update : Updates all packages and dependencies
+			dnf repolist : Lists all installed repos
+			remove : removes a package
+		yum:
+			search [search_string] : Searches for repositories
+			install [package_name]
+			erase [package_name]
+			update
 
     Directory and files
         find filename : Searches for file
@@ -241,8 +245,6 @@ System:
 		xargs : Build and execute command lines from standard input
 		touch : Change file times
 		stat : Display file or filesystem status
-		grep : Searches for patterns in each file
-			-i : Ignore case conditions
 
 	Compression
 		gzip : Compresses a selected file
